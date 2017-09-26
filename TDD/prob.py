@@ -76,6 +76,7 @@ def f(u, n):
     result = base ** exponent
     return result
 
+# ----------- PLEASE COMPLETE THE FUNCTION BELOW ----------
 def integrate(t, n, f):
     pass
 
