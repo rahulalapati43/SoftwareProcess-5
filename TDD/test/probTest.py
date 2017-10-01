@@ -279,6 +279,8 @@ class ProbTest(TestCase):
     #        float .GE. 0
     # Happy path
     #    nominal case:  integrate(1.4398,6,f) -> 1.045
+    #    when trying to pass this test case, other test cases in test100 series failed, so to pass them i had to change my code and
+    #    that covered all other possible test cases for integrate function.
     # Sad path
     #            none ... all inputs are pre-validated
 
