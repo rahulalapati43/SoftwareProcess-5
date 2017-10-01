@@ -78,10 +78,46 @@ def f(u, n):
 
 # ----------- PLEASE COMPLETE THE FUNCTION BELOW ----------
 def integrate(t, n, f):
-    return 1.04513
+    lowBound = 0.0
+    highBound = t
+    s = 4
+    w = (highBound - lowBound) / float(s)
 
+    sumEven = 0.0
+    for i in range(2, ((s / 2) + 1), 2):
+        sumEven = sumEven + (f((lowBound + ((i - 1) * w)), n) + f((highBound - ((i - 1) * w)), n))
+    sumEven = 4 * sumEven
 
+    sumOdd = 0.0
+    for j in range(3, ((s / 2) + 2), 2):
+        if (j != ((s / 2) + 1)):
+            sumOdd = sumOdd + (f((lowBound + ((j - 1) * w)), n) + f((highBound - ((j - 1) * w)), n))
+        elif (j == ((s / 2) + 1)):
+            sumOdd = sumOdd + (f((lowBound + ((j - 1) * w)), n))
+    sumOdd = 2 * sumOdd
 
+    simpsonOld = (w / 3) * (f(lowBound, n) + sumEven + sumOdd + f(t, n))
+
+    s = 8
+    w = (highBound - lowBound) / float(s)
+
+    sumEven = 0.0
+    for i in range(2, ((s / 2) + 1), 2):
+        sumEven = sumEven + (f((lowBound + ((i - 1) * w)), n) + f((highBound - ((i - 1) * w)), n))
+    sumEven = 4 * sumEven
+
+    sumOdd = 0.0
+    for j in range(3, ((s / 2) + 2), 2):
+        if (j != ((s / 2) + 1)):
+            sumOdd = sumOdd + (f((lowBound + ((j - 1) * w)), n) + f((highBound - ((j - 1) * w)), n))
+        elif (j == ((s / 2) + 1)):
+            sumOdd = sumOdd + (f((lowBound + ((j - 1) * w)), n))
+    sumOdd = 2 * sumOdd
+
+    simpsonNew = (w / 3) * (f(lowBound, n) + sumEven + sumOdd + f(t, n))
+
+    if (abs((simpsonNew - simpsonOld) / simpsonOld) <= 0.001):
+        return simpsonNew
 
 
 
