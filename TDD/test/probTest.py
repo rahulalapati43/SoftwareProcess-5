@@ -213,7 +213,7 @@ class ProbTest(TestCase):
     # 200 gamma
     #     Analysis
     #        inputs:
-    #            x ->  n umeric (either integer or integer/2, mandatory validated
+    #            x ->  numeric (either integer or integer/2, mandatory validated
     #     Happy path:
     #            x:    termination condition    x=1
     #                  termination condition    x=1/2
@@ -278,8 +278,9 @@ class ProbTest(TestCase):
     #    outputs
     #        float .GE. 0
     # Happy path
-    #
+    #    nominal case:  integrate(1.4398,6,f) -> 1.045
     # Sad path
     #            none ... all inputs are pre-validated
 
-
+    def test500_010_ShouldIntegrateFStarterCase(self):
+        self.assertAlmostEquals(integrate(1.4398,6,f), 1.04513, 3)
