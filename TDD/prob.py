@@ -118,6 +118,8 @@ def integrate(t, n, f):
 
     if (abs((simpsonNew - simpsonOld) / simpsonOld) <= 0.001):
         return simpsonNew
+    else:
+        return 0.0
 
 
 
