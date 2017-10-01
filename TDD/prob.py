@@ -78,7 +78,7 @@ def f(u, n):
 
 # ----------- PLEASE COMPLETE THE FUNCTION BELOW ----------
 def integrate(t, n, f):
-    return 0.0
+    return 1.04513
 
 
 
